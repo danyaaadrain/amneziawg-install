@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# AmneziaWG server installer
-# https://github.com/romikb/amneziawg-install
 
 RED='\033[0;31m'
 ORANGE='\033[0;33m'
@@ -152,7 +150,7 @@ function readH1AndH2AndH3AndH4() {
 }
 
 function installQuestions() {
-	echo "AmneziaWG server installer (https://github.com/romikb/amneziawg-install)"
+	echo "AmneziaWG server installer (https://github.com/danyaaadrain/amneziawg-install)"
 	echo ""
 	echo "I need to ask you a few questions before starting the setup."
 	echo "You can keep the default options and just press enter if you are ok with them."
@@ -276,6 +274,7 @@ function installAmneziaWG() {
 		add-apt-repository -y ppa:amnezia/ppa
 		apt install -y amneziawg amneziawg-tools qrencode
 	elif [[ ${OS} == 'debian' ]]; then
+		apt install -y gnupg
 		if ! grep -q "^deb-src" /etc/apt/sources.list; then
 			cp /etc/apt/sources.list /etc/apt/sources.list.d/amneziawg.sources.list
 			sed -i 's/^deb/deb-src/' /etc/apt/sources.list.d/amneziawg.sources.list
@@ -614,7 +613,7 @@ function loadParams() {
 }
 
 function manageMenu() {
-	echo "AmneziaWG server installer (https://github.com/romikb/amneziawg-install)"
+	echo "AmneziaWG server installer (https://github.com/danyaaadrain/amneziawg-install)"
 	echo ""
 	echo "It looks like AmneziaWG is already installed."
 	echo ""
